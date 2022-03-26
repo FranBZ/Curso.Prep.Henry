@@ -240,7 +240,7 @@ function esVocal(letra){
   var vocales = ['a','e','i','o','u'];
   if (letra.length < 1 || letra.length > 1){
     return 'Dato incorrecto';
-  } else if(vocales.indexOf(letra) != -1){
+  } else if(vocales.includes(letra)){
     return 'Es vocal';
   } else {
     return 'Dato incorrecto';
