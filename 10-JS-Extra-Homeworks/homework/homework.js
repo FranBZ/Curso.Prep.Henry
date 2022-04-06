@@ -145,7 +145,7 @@ function buscoInterseccion(arreglo1, arreglo2){
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
 
-  var interseccion = [];
+  /* var interseccion = [];
 
   if (arreglo1.length <= arreglo2.length){
 
@@ -162,6 +162,8 @@ function buscoInterseccion(arreglo1, arreglo2){
       }
     }
   }
+  return interseccion; */
+  var interseccion = arreglo1.filter(num => arreglo2.includes(num));
   return interseccion;
 }
 

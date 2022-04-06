@@ -26,10 +26,14 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  for (var i = 0; i < array.length; i++){
+
+  /* for (var i = 0; i < array.length; i++){
     array[i] = array[i] + 1;
   }
-  return array;
+  return array; */
+
+  var nuevoArr = array.map(numero => numero+1)
+  return nuevoArr;
 }
 
 
@@ -58,7 +62,8 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  var cadena = '';
+
+  /* var cadena = '';
   for (var i = 0; i < palabras.length; i++) {
     if (i == palabras.length - 1){
       cadena += palabras[i];
@@ -66,7 +71,16 @@ function dePalabrasAFrase(palabras) {
     } else {
       cadena += palabras[i] + ' ';
     }
-  }
+  } */
+
+  var frase = palabras.reduce(function(fra, pal, ind){
+    if(ind == palabras.length-1){
+      return fra + pal;
+    } else {
+      return fra + pal + ' ';
+    }
+  },'')
+  return frase;
 }
 
 
@@ -82,11 +96,15 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  var total = 0;
+
+  /* var total = 0;
   for (var i = 0; i < numeros.length; i++){
     total += numeros[i];
   }
-  return total
+  return total */
+
+  var total = numeros.reduce((acum, num) => acum + num, 0);
+  return total;
 }
 
 
@@ -94,11 +112,16 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+
+  /* 
   var total = 0;
   for (var i = 0; i < resultadosTest.length; i++){
     total += resultadosTest[i];
   }
-  return total/resultadosTest.length
+  return total/resultadosTest.length */
+
+  var total = resultadosTest.reduce((acum, notas) => acum + notas, 0);
+  return total / resultadosTest.length;
 }
 
 
@@ -130,20 +153,22 @@ function multiplicarArgumentos() {
       resultado *= arguments[i.toString()];
     }
     return resultado;
-  }
+  }  
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-  var contador = 0;
+  /* var contador = 0;
   for (var i = 0; i < arreglo.length; i++) {
     if (arreglo[i] > 18) {
       contador += 1;
     }
   }
-  return contador;
+  return contador; */
+  var elementos = arreglo.filter(num => num > 18);
+  return elementos.length;
 }
 
 
@@ -191,12 +216,14 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
-  var nuevoArray = []
+  /* var nuevoArray = []
   for (var i = 0; i < array.length; i++) {
     if (array[i] == 'Enero' || array[i] == 'Marzo' || array[i] == 'Noviembre') {
       nuevoArray.push(array[i]);
     }
-  }
+  } */
+  var meses = ['Marzo','Noviembre','Enero'];
+  var nuevoArray = meses.filter(mes => array.includes(mes));
   if (nuevoArray.length < 3) {
     return 'No se encontraron los meses pedidos';
   } else {
@@ -208,12 +235,14 @@ function mayorACien(array) {
   //La función recibe un array con enteros entre 0 y 200. Recorrer el array y guardar en un nuevo array sólo los
   //valores mayores a 100 (no incluye el 100). Finalmente devolver el nuevo array.
   // Tu código:
-  var nuevoArray = [];
+  /* var nuevoArray = [];
   for (var i = 0; i < array.length; i++) {
     if (array[i] > 100) {
       nuevoArray.push(array[i]);
     }
   }
+  return nuevoArray; */
+  var nuevoArray = array.filter(num => num > 100)
   return nuevoArray;
 }
 

@@ -187,7 +187,7 @@ function tablaDelSeis(){
   for (var i = 0; i <= 10; i++) {
     arreglo.push(i*6)
   }
-  return arreglo
+  return arreglo;
 }
 
 function tieneTresDigitos(numero){
